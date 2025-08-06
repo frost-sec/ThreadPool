@@ -13,18 +13,27 @@ threadpool.submit(F&& Function,string Discription,short Importance)
 to submit tasks to thread_pool.<br>
 *The Function must be packaged by lambda.The Discription must shorter than 72bytes.The higher importance it is,the faster it will run in the pool.* <br>
 For example, if you wanna run a function1(),you can submit as following.<br>
+```C++
 threadpool.submit(\[=](){function1();},"Function 1",4);<br>
+```
 If the function has a return value, the threadpool will return a future<ReturnType()>,use following command to get it.<br>
+```C++
 auto result=threadpool.submit(\[=](){return function1();},"Fcuntion 1",4);<br>
 result.get();<br>
+```
 *Attention,once use result.get(),and the task didn't finish,the thread will be blocked until the task finish.* <br>
 submit_task--->thread_pool_running--->get_answer<br>
      |--->other_tasks--->answer.future----|---->other_tasks<br>
-                                 (blocked)<br>
+                              (blocked)<br>
 The threadpool will dynamic change the working threads.<br>
 If tasks'quantity is bigger than worker_threads'quantity,and the worker_threads'quantity is smaller than limit,the thread_pool will add worker_threads.<br>
 If tasks'quantity is smaller than worker_threads'quantity,and the worker_thread'quantity is bigger than limit,the thread_pool will reduce worker_threads.<br>
-However,you can use ThreadPool.add(remove)_work_thread() to change the threads manually.It will return a bool if successful.<br>
+<br>
+However,you can use 
+```C++
+ThreadPool.add(remove)_work_thread()
+```
+to change the threads manually.It will return a bool if successful.<br>
 Also the thread pool provide a log_save function.It will save the tasks the worker run.(However,some tasks might be loss.Because the worker runs too fast and didn't save)<br>
 <br>
 ## Create your own thread pool
@@ -34,6 +43,7 @@ The worker_loop(for running thread),monitor_loop(for monitor_thread),Adjust_thre
 You can visit Demo to check how to use the threadpool<br>
 <br>
 Really sorry that it can't run in VS-Studio which always cast errors while running.However,it works perfectly on Dev-C++ which use gcc.<br>
+
 
 
 
