@@ -7,7 +7,9 @@ to initial it.<br>
 the thread will create initial_worker_number threads.If lock_thread is true, the thread pool willnot change the quantity of worker_threads.<br>
 
 Use 
+```C++
 threadpool.submit(F&& Function,string Discription,short Importance) 
+```
 to submit tasks to thread_pool.<br>
 *The Function must be packaged by lambda.The Discription must shorter than 72bytes.The higher importance it is,the faster it will run in the pool.* <br>
 For example, if you wanna run a function1(),you can submit as following.<br>
@@ -32,6 +34,7 @@ The worker_loop(for running thread),monitor_loop(for monitor_thread),Adjust_thre
 You can visit Demo to check how to use the threadpool<br>
 <br>
 Really sorry that it can't run in VS-Studio which always cast errors while running.However,it works perfectly on Dev-C++ which use gcc.<br>
+
 
 
 
