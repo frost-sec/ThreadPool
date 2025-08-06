@@ -1,5 +1,6 @@
-This is a thread pool which use muti-threads to solve abundant tasks.<br>
+#This is a thread pool which use muti-threads to solve abundant tasks.<br>
 
+#How to use
 It is defined as a class,use<br>
 ThreadPool threadpool(int initial_worker_number,bool lock_thread=false);<br>
 to initial it.<br>
@@ -27,3 +28,4 @@ The worker_loop(for running thread),monitor_loop(for monitor_thread),Adjust_thre
 You can visit Demo to check how to use the threadpool<br>
 <br>
 Really sorry that it can't run in VS-Studio which always cast errors while running.However,it works perfectly on Dev-C++ which use gcc.<br>
+
