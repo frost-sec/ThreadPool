@@ -2,12 +2,12 @@
 
 ## How to use
 It is defined as a class,use<br>
-# ThreadPool threadpool(int initial_worker_number,bool lock_thread=false);<br>
+ThreadPool threadpool(int initial_worker_number,bool lock_thread=false);<br>
 to initial it.<br>
 the thread will create initial_worker_number threads.If lock_thread is true, the thread pool willnot change the quantity of worker_threads.<br>
 
 Use 
-# threadpool.submit(F&& Function,string Discription,short Importance) 
+threadpool.submit(F&& Function,string Discription,short Importance) 
 to submit tasks to thread_pool.<br>
 *The Function must be packaged by lambda.The Discription must shorter than 72bytes.The higher importance it is,the faster it will run in the pool.* <br>
 For example, if you wanna run a function1(),you can submit as following.<br>
@@ -30,5 +30,6 @@ Also the thread pool provide a log_save function.It will save the tasks the work
 You can visit Demo to check how to use the threadpool<br>
 <br>
 Really sorry that it can't run in VS-Studio which always cast errors while running.However,it works perfectly on Dev-C++ which use gcc.<br>
+
 
 
