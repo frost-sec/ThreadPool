@@ -14,12 +14,12 @@ to submit tasks to thread_pool.<br>
 *The Function must be packaged by lambda.The Discription must shorter than 72bytes.The higher importance it is,the faster it will run in the pool.* <br>
 For example, if you wanna run a function1(),you can submit as following.<br>
 ```C++
-threadpool.submit(\[=](){function1();},"Function 1",4);<br>
+threadpool.submit([=](){function1();},"Function 1",4);
 ```
 If the function has a return value, the threadpool will return a future<ReturnType()>,use following command to get it.<br>
 ```C++
-auto result=threadpool.submit(\[=](){return function1();},"Fcuntion 1",4);<br>
-result.get();<br>
+auto result=threadpool.submit([=](){return function1();},"Fcuntion 1",4);
+result.get();
 ```
 *Attention,once use result.get(),and the task didn't finish,the thread will be blocked until the task finish.* <br>
 submit_task--->thread_pool_running--->get_answer<br>
@@ -43,6 +43,7 @@ The worker_loop(for running thread),monitor_loop(for monitor_thread),Adjust_thre
 You can visit Demo to check how to use the threadpool<br>
 <br>
 Really sorry that it can't run in VS-Studio which always cast errors while running.However,it works perfectly on Dev-C++ which use gcc.<br>
+
 
 
 
